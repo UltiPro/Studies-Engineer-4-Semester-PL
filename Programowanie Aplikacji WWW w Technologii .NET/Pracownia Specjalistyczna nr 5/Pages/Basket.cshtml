@@ -1,0 +1,36 @@
+@page
+@model BasketModel
+@{
+}
+
+<div>
+	<h3>KOSZYK</h3>
+	      <table class="table table-striped">
+         <thead>
+            <tr>
+                <th scope="col">Ilosc</th>
+                <th scope="col">@Html.DisplayNameFor(model =>Model.productList[0].name)</th>
+                <th scope="col">@Html.DisplayNameFor(model =>Model.productList[0].price)</th>
+            </tr>
+         </thead>
+         <tbody>
+         @foreach (var p in Model.productList)
+         {
+         <tr>
+            <th>@Model.quantity[p.id]</th>
+            <td>@Html.DisplayFor(m => p.name)</td>
+            <td>@Html.DisplayFor(m => p.price)</td>
+         </tr>
+         }
+         <th></th>
+         <td>SUMA:</td>
+         <td>@Model.money</td>
+         </tbody>
+    </table>
+
+    <form method="post" class="d-inline">
+       <button id="myButtons" class="btn btn btn-primary">Wyczyść koszyk</button>
+    </form>
+
+    <a class="btn btn-success btn-large my-2 d-inline p-2" href="List">Powrót</a>
+</div>

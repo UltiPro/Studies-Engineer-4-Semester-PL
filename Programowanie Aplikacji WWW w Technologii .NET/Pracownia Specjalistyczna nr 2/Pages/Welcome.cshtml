@@ -1,0 +1,44 @@
+@page "{imie}/{nazwisko}/{wiek}/{plec}/{telefon}/{cpp}/{chasztag}/{java}"
+@model WelcomeModel
+@{
+    ViewData["Title"] = "Witaj";
+    var _imie = RouteData.Values["imie"];
+    var _nazwisko = RouteData.Values["nazwisko"];
+    var _wiek = RouteData.Values["wiek"];
+    var _plec = RouteData.Values["plec"];
+    var _telefon = RouteData.Values["telefon"];
+    var _cpp = RouteData.Values["cpp"];
+    var _chasztag = RouteData.Values["chasztag"];
+    var _java = RouteData.Values["java"];
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        @if(Convert.ToInt32(_wiek)<18)
+        {
+            <h3 class="text-warning">Dziękujemy za wprowadzenie danych firma odezwie się w przyszłosci!</h3>
+        }
+        else
+        {   
+            <div class="p-2">
+                <h3>Dziękujemy za wprowadzenie danych!</h3>
+                <h4>
+                Imie: <span class="text-info">@_imie</span> Nazwisko: <span class="text-info">@_nazwisko</span> <br/>
+                Wiek: <span class="text-info">@_wiek</span> Płeć: <span class="text-info">@_plec</span> <br/>
+                Telefon: <span class="text-info">@_telefon</span> <br/>
+                Znane języki:
+                @if(Convert.ToBoolean(_cpp)) { <span class="text-success">C++</span> }
+                else { <span class="text-danger">C++</span> }
+                @if(Convert.ToBoolean(_chasztag)) { <span class="text-success">C#</span> }
+                else { <span class="text-danger">C#</span> }
+                @if(Convert.ToBoolean(_java)) { <span class="text-success">Java</span> }
+                else { <span class="text-danger">Java</span> }
+                </h4>
+            </div>
+        }
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+

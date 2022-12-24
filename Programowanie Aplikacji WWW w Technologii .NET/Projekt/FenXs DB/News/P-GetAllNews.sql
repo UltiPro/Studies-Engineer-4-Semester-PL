@@ -1,0 +1,11 @@
+USE [FenXs-News]
+GO
+DROP PROCEDURE GetAllNews
+GO
+CREATE PROCEDURE GetAllNews
+AS
+BEGIN
+    SELECT *
+    FROM News
+    ORDER BY Date DESC
+END
