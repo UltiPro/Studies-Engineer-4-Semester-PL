@@ -1,0 +1,10 @@
+<store>
+    <product id="1">
+        <name>Narty</name>
+        <price>399,99</price>
+    </product>
+    <product id="2">
+        <name>Piłka nożna</name>
+        <price>35,99</price>
+    </product>
+</store>

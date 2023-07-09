@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<h2>Lista produktów</h2>
+<div class="row col-sm-12">
+    <a asp-page="Create" class="btn btn-primary btn-large">Dodaj</a>
+</div>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => Model.productList[0].id)</th>
+            <th scope="col">@Html.DisplayNameFor(model => Model.productList[0].name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => Model.productList[0].price)</th>
+            <th scope="col">Akcja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.productList)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(m => p.id)</th>
+                <td>@Html.DisplayFor(m => p.name)</td>
+                <td>@Html.DisplayFor(m => p.price)</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@p.id">Szczegóły</a> |
+                    <a asp-page="Edit" asp-route-id="@p.id">Edytuj</a> |
+                    <a asp-page="Delete" asp-route-id="@p.id">Kasuj</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

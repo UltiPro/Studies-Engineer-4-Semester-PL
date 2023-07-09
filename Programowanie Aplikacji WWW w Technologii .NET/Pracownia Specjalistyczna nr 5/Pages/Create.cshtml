@@ -1,0 +1,35 @@
+@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Nowy produkt";
+}
+
+<h2>Nowy produkt</h2>
+<br /><br />
+<div class="container">
+    <div class="row">
+        <form class="form-horizontal" method="post">
+            <div class="form-group py-1">
+                <label asp-for="newProduct.name" class="control-label col-sm2"></label>
+                <div class="col-sm-6">
+                    <input asp-for="newProduct.name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group py-1">
+                <label asp-for="newProduct.price" class="control-label col-sm2"></label>
+                <div class="col-sm-6">
+                    <input asp-for="newProduct.price" class="form-control">
+                </div>
+            </div>
+            <div class="form-group py-1">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn btn-primary">Zatwierdź</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <span class="text-danger" asp-validation-for="newProduct.name"></span>
+        <span class="text-danger" asp-validation-for="newProduct.price"></span>
+    </div>
+</div>

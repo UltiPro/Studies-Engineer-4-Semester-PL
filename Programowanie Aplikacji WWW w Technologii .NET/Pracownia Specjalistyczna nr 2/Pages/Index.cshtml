@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Formularz";
+}
+
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-4">
+    <div class="text-info">
+        Witaj w formularzu rekrutacyjnym !
+    </div>
+    <form method="post">
+        <div class="form-group my-2">
+            <label for="imie">Imie:</label>
+            <input type="text" class="form-control" name="imie" placeholder="np. Jan" />
+        </div>
+        <div class="form-group my-2">
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" class="form-control" name="nazwisko" placeholder="np. Kowalski" />
+        </div>
+        <div class="form-group my-2">
+            <label for="wiek">Wiek:</label>
+            <input type="number" class="form-control" name="wiek" placeholder="np. 25" />
+        </div>
+        <div class="form-group my-2">
+            <label for="tel">Telefon:</label>
+            <input type="tel" class="form-control" name="telefon" placeholder="123-456-789" patter="[0-9]{3}-[0-9]{3}-[0-9]{3}"/>
+            <small>Format: 123-456-789</small>
+        </div>
+        <div class="form-group my-2">
+            Płeć:<br />
+            <div class="form-check form-check-inline">
+                <label for="plecmen" class="form-check-label">Mężczyzna</label>
+                <input type="radio" class="form-check-input" id="plecmen" name="plec" value="Mężczyzna" />
+            </div>
+            <div class="form-check form-check-inline">
+                <label for="plecfemale" class="form-check-label">Kobieta</label>
+                <input type="radio" class="form-check-input" id="plecfemale" name="plec" value="Kobieta" />
+            </div>
+        </div>
+        <div class="form-group my-2">
+            Języki Programowania:<br />
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cpp" value="true" name="cpp"/>
+                <label class="form-check-label" for="cpp">C++</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chasztag" value="true" name="chasztag"/>
+                <label class="form-check-label" for="chasztag">C#</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="java" value="true" name="java"/>
+                <label class="form-check-label" for="java">Java</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 col-md-12 bg-success ">Potwierdź!</button>
+    </form>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <h1 class="text-danger">Witaj!</h1>
+        <h2>Zapraszamy do rekrutacji na najlepszych programistów w technologi <span class="text-warning">.NET</span></h2>
+    </div>
+</div>

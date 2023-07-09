@@ -1,0 +1,37 @@
+﻿@page
+@model efcore.Pages.Categories.ShowModel
+
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h1>Show</h1>
+
+<a asp-page="./Index">Back</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListOfProducts[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListOfProducts[0].price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListOfProducts)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

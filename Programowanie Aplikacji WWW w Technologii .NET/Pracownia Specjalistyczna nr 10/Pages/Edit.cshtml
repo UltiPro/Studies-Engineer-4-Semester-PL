@@ -1,0 +1,45 @@
+@page
+@model EditModel
+@{
+    ViewData["Title"] = "Lista produktów - Szczegóły";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Produkt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group py-1">
+                <label asp-for="p.name" class="control-label">Nazwa</label>
+                <input asp-for="p.name" class="form-control" />
+                <span asp-validation-for="p.name" class="text-danger"></span>
+            </div>
+            <div class="form-group py-1">
+                <label asp-for="p.price" class="control-label">Cena</label>
+                <input asp-for="p.price" class="form-control" />
+                <span asp-validation-for="p.price" class="text-danger"></span>
+            </div>
+            <div class="form-group py-1">
+                <label asp-for="p.id_cat" class="control-label">Kategoria</label>
+                <select asp-for="p.id_cat" class="form-control">
+                    @foreach (var c in Model.categoryList)
+                    {
+                            <option value="@c.id">@c.longName</option>
+                    }
+                </select>
+                <span asp-validation-for="p.id_cat" class="text-danger"></span>
+            </div>
+            <div class="form-group py-1">
+                <button class="btn btn btn-primary">Zatwierdź</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <a asp-page="./Index">Back to List</a>
+</div>

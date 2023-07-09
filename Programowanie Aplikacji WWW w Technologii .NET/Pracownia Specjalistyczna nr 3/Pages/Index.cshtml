@@ -1,0 +1,79 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Oblicz BMI";
+}
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group p-2">
+                <label class="control-label">Imie:</label>
+                <input type="text" class="form-control" placeholder="np. Jan" asp-for="person.name" />
+            </div>
+            <div class="form-group p-2">
+                <label class="control-label">E-mail:</label>
+                <input type="email" class="form-control" placeholder="np. jankowalski@wp.pl" asp-for="person.email" />
+            </div>
+            <div class="form-group p-2">
+                <label class="control-label">Wiek</label>
+                <input type="number" class="form-control" asp-for="person.age" />
+            </div>
+            <div class="form-group p-2">
+                <!-- Płeć -->
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">Mężczyzna</label>
+                    <input type="radio" class="form-check-input" value="man" asp-for="person.sex" />
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">Kobieta</label>
+                    <input type="radio" class="form-check-input" value="woman" asp-for="person.sex" />
+                </div>
+            </div>
+            <div class="form-group p-2">
+                <label class="control-label">Waga:</label>
+                <input class="form-control" asp-for="person.weight" />
+                <small>Waga w kilogramach.</small>
+            </div>
+            <div class="form-group p-2">
+                <label class="control-label">Wzrost miara w:</label>
+                <select class="form-select" asp-for="person.heightInCm">
+                    <option value="true" selected>Centymetry</option>
+                    <option value="false">Metry</option>
+                </select>
+            </div>
+            <div class="form-group p-2">
+                <label class="control-label">Wzrost:</label>
+                <input class="form-control" step="0.01" asp-for="person.height" />
+            </div>
+            <div class="form-group p-2">
+                <button type="submit" class="btn btn-primary bg-success col-md-12">Wyślij!</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <span asp-validation-for="person.name" class="text-danger"></span>
+        <span asp-validation-for="person.email" class="text-danger"></span>
+        <span asp-validation-for="person.age" class="text-danger"></span>
+        <span asp-validation-for="person.sex" class="text-danger"></span>
+        <span asp-validation-for="person.weight" class="text-danger"></span>
+        <span asp-validation-for="person.height" class="text-danger"></span>
+    </div>
+</div>
+
+@section Scripts{
+<script>
+    $('#person_height').on('keyup keydown', function (e) {
+        var newVal = $(this).val().replace(".", ",");
+        $(this).val(newVal);
+    });
+</script>
+<script>
+    $('#person_weight').on('keyup keydown', function (e) {
+        var newVal = $(this).val().replace(".", ",");
+        $(this).val(newVal);
+    });
+</script>
+}
